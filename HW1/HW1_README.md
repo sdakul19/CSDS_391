@@ -16,21 +16,24 @@ The cmd() function can take the commands
 
 # Running Code
 To run the code run 
-> python main.py {testfile.txt}
+```
+python main.py {testfile.txt}
+```
 
 You can either run main.py and in __main__ declare the commands using cmd
 ex. 
-
+```
 if __name__ == "__main__":
     cmd(scrambleState 10)
     cmd(printState)
-
+```
 Or you can fill out a text file and use it in as an argument with main.py
 testcmds.txt shows an example test file
-
+```
 if __name__ "__main__":
     try:
         filename = sys.argv[1]
         cmdfile(filename)
     except IndexError:
         print("Error: No file listed or doesn't exist")
+```
