@@ -1,0 +1,92 @@
+# Test file to test functionality of the 8 Puzzle Commands
+
+# Initial state is
+# | |1|2|
+# |3|4|5|
+# |6|7|8|
+
+# First set of commands test invalid movement commands ie. moving the blank space
+# in a direction it can't move
+# Any time the blank space is in the top row, it can't move up
+# Any time the blank space is in the bottom row, it can't move down
+# Any time the blank space is on the right side, it can't move right
+# Any time the blank space is on the left side, it can't move left
+
+# Should be invalid because the blank space is at position 0
+move up
+
+# 3rd move to the right should be invalid and any move up should be invalid
+move right
+move up
+move right
+move up
+move right
+
+# 3rd move down should be invalid and any move right should be invalid
+move down
+move right
+move down
+move right
+move down
+
+# 3rd move left should be invalid and any move down should be invalid
+move left
+move down
+move left 
+move down
+move left
+
+# Test invalid set state commands
+# A valid setState command has unique number 0-8 and exactly 9 numbers
+# Any duplicates, or set of numbers outside of 0-8 will result in an invalid command
+setState
+setState 0 0 0 0 0 0 0 0
+setState 1 2 3 4 5 6 7 7
+setState 0 1 2 3 4 5 6 9
+setState 0 1 2 3 4 5 6 7 8 9
+
+# Test set state back to original start
+# | |1|2|
+# |3|4|5|
+# |6|7|8|
+
+setState 0 1 2 3 4 5 6 7 8
+
+# Test set state 
+setState 1 3 2 5 4 6 7 8 0
+setState 1 0 2 8 3 5 6 4 7
+setState 8 5 3 2 4 1 6 0 7
+setState 0 4 3 2 6 7 5 8 1
+
+# Test print state
+# Print state is built into the cmdfile command but can also be used in the text file
+printState
+
+# Test reset
+# Reset is used to bring the puzzle back to the original structure
+reset
+
+# Test scramble state
+# Reset is used internally in scrambleState
+# If no scramble number n is stated, no random movements will occur
+scrambleState
+
+# Set the seed for the scramble using setSeed
+setSeed 10
+scrambleState 0
+
+scrambleState 1
+
+scrambleState 20
+
+scrambleState 100
+
+# Test that the same seed provides the same scramble
+setSeed 5
+scrambleState 20
+
+setSeed 7
+scrambleState 20
+
+setSeed 5
+scrambleState 20
