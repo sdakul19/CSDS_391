@@ -1,0 +1,39 @@
+# Test file to test functionality of BFS search algorithm
+
+# First test if BFS fails when incorrectly calling maxnodes
+
+solve BFS maxNode=
+
+solve BFS maxNode
+
+solve BFS maxNode20
+
+# Test if BFS if puzzle state is already in goal state
+solve BFS 
+
+# Test if default maxnodes is 1000
+scrambleState 100
+
+solve BFS
+
+# Test if maxnodes can be set to different values
+setSeed 5
+
+scrambleState 80
+
+solve BFS maxnodes=100
+
+solve BFS maxnodes=80
+
+scrambleState 10
+
+solve BFS maxnodes=20
+
+# Test if BFS can solve
+scrambleState 10
+
+solve BFS
+
+scrambleState 40
+
+solve BFS
